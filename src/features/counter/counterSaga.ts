@@ -10,12 +10,10 @@ function* test() {
 }
 
 function* handelIncrementSaga(action: PayloadAction<number>) {
-  console.log("handelIncrementSaga");
   yield delay(2000)
   yield put(incrementSagaSuccess(action.payload))
 }
 
 export default function* counterSaga() {
-    console.log('counter saga');
     yield takeLatest(incrementSaga.toString(), handelIncrementSaga)
 }

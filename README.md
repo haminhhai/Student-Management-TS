@@ -1,9 +1,5 @@
-This is my mini project to improve my react, redux toolkit and combine typescript.
-
 ## Student Management System
-
-In the project directory, you can run:
-
+This is my mini project to improve my react, redux toolkit and combine typescript.
 ### `npm start`
 
 Runs the app in the development mode.<br />
