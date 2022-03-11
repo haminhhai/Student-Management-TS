@@ -1,10 +1,11 @@
 import { PayloadAction } from '@reduxjs/toolkit';
 import { push } from 'connected-react-router';
-import { call, fork, put, take } from 'redux-saga/effects';
+import { call, delay, fork, put, take } from 'redux-saga/effects';
 import { authActions, LoginPayload } from './authSlice';
 
 function* handleLogin(payload: LoginPayload) {
   try {
+    yield delay(2000);
     console.log('handleLogin', payload);
     localStorage.setItem('SMS_TOKEN', 'abcdefu');
     yield put(authActions.loginSuccess({
