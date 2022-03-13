@@ -5,18 +5,20 @@ import rootSaga from './rootSaga';
 import authReducer from 'features/auth/authSlice';
 import { connectRouter, routerMiddleware } from 'connected-react-router';
 import { history } from 'utils';
+import dashboardReducer from 'features/dashboard/dashboardSlice';
 
 const rootReducer = combineReducers({
   router: connectRouter(history),
   counter: counterReducer,
   auth: authReducer,
-})
+  dashboard: dashboardReducer,
+});
 
 const sagaMiddleware = createSagaMiddleware();
 export const store = configureStore({
   reducer: rootReducer,
-  middleware: (getDefaultMiddleware) => 
-  getDefaultMiddleware().concat(sagaMiddleware, routerMiddleware(history)),
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(sagaMiddleware, routerMiddleware(history)),
 });
 
 sagaMiddleware.run(rootSaga);
