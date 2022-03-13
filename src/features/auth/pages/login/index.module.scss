@@ -1,28 +1,5 @@
 @import 'assets/styles/variables';
 
-.container {
-    min-width: 100%;
-    height: 100vh;
-    overflow: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-image: url(https://gw.alipayobjects.com/zos/rmsportal/TVYTbAXWheQpRcWDaDMu.svg) !important;
-    background-repeat: no-repeat !important;
-    background-position: center 110px !important;
-    background-size: 100% !important;
-    background-color: $light-normal !important;
-}
-
-.wrapper {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
 .user-icon {
     width: 100px;
     height: 100px;

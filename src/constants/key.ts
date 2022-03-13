@@ -1,0 +1,1 @@
+export const SMS_TOKEN = 'SMS_TOKEN'

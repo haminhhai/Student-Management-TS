@@ -1,33 +1,37 @@
-import React, { useEffect } from 'react';
-import cityApi from 'api/city';
-import studentApi from 'api/student';
-import LoginPage from 'features/auth/pages/login';
-import { AdminLayout } from 'components/layout';
 import { NotFound, PrivateRoute } from 'components/common';
-import { Route, Switch } from 'react-router-dom';
+import { AdminLayout, PublicLayout } from 'components/layout';
+import LoginPage from 'features/auth/pages/login';
+import React from 'react';
+import { Redirect, Route, Switch } from 'react-router-dom';
+import { getToken } from 'utils';
 
-function App() {
-  useEffect(() => {
-    cityApi.getAll().then((res) => {
-      console.log(res);
-    });
-  });
+export default function App() {
+  const isLoggedIn = Boolean(getToken());
 
   return (
-    <Switch>
-      <Route path="/login">
-        <LoginPage />
-      </Route>
+    <>
+      <Switch>
+        <Route
+          exact
+          path="/"
+          render={() => {
+            return isLoggedIn ? <Redirect to={'/admin'} /> : <Redirect to="/login" />;
+          }}
+        />
+        <Route path="/login">
+          <PublicLayout>
+            <LoginPage />
+          </PublicLayout>
+        </Route>
 
-      <PrivateRoute path="/admin">
-        <AdminLayout />
-      </PrivateRoute>
+        <PrivateRoute path="/admin">
+          <AdminLayout />
+        </PrivateRoute>
 
-      <Route>
-        <NotFound />
-      </Route>
-    </Switch>
+        <Route>
+          <NotFound />
+        </Route>
+      </Switch>
+    </>
   );
 }
-
-export default App;

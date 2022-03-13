@@ -2,6 +2,6 @@ import React from 'react';
 
 export interface NotFoundProps {}
 
-export function NotFound(props: NotFoundProps) {
+export default function NotFound(props: NotFoundProps) {
   return <div>Not Found</div>;
 }
