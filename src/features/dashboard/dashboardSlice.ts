@@ -42,10 +42,10 @@ const dashboardSlice = createSlice({
     fetchData(state) {
       state.loading = true;
     },
-    fetchDataSuccess(state, action) {
+    fetchDataSuccess(state) {
       state.loading = false;
     },
-    fetchDataFailed(state, action) {
+    fetchDataFailed(state) {
       state.loading = false;
     },
 
