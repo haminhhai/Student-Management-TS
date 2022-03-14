@@ -1,0 +1,43 @@
+@import 'assets/styles/variables.scss';
+
+@import "assets/styles/variables.scss";
+
+.card {
+    &:global(.ant-card) {
+        border-radius: 1rem;
+        background-color: $light-normal;
+        color: black;
+        padding: 0.1rem;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    }
+
+    :global(.ant-card-body) {
+        padding: 16px;
+    }
+}
+
+.top-table {
+    :global(.ant-table-thead > tr > th),
+    :global(.ant-table-tbody > tr > td) {
+        background-color: $light-normal;
+    }
+
+    :global(.ant-table-tbody > tr.ant-table-row:hover > td) {
+        background-color: $dark-normal;
+    }
+}
+
+.ranking_idx {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.top_3 {
+    background-color: $dark-bold;
+    font-weight: 600;
+    color: #FFf;
+}
