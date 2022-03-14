@@ -15,8 +15,8 @@ export function StatisticItem(props: StatisticItemProps) {
   const { icon, label, value } = props;
   return (
     <Card className={cx('card')}>
-      <div className={cx('card_content')}>
-        <h5>{label}</h5>
+      <div>
+        <h4>{label}</h4>
         <h2>{value}</h2>
       </div>
       <div className={cx('card_icon')}>{icon}</div>

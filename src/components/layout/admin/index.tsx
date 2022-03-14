@@ -7,19 +7,18 @@ import { Header, SideBar } from '..';
 
 const { Content } = Layout;
 
-export const AdminLayout= () => {
+export const AdminLayout = () => {
   return (
     <Layout style={{ minHeight: '100vh' }}>
-    <SideBar />
+      <Header />
       <Layout>
-        <Header />
-        <Content style={{ padding: '16px'}}>
+        <SideBar />
+        <Content style={{ padding: '32px' }}>
           <Switch>
-            <Route path='/admin/dashboard'>
+            <Route path="/admin/dashboard">
               <Dashboard />
             </Route>
-
-            <Route path='/admin/students'>
+            <Route path="/admin/students">
               <StudentFeature />
             </Route>
           </Switch>
@@ -27,4 +26,4 @@ export const AdminLayout= () => {
       </Layout>
     </Layout>
   );
-}
+};

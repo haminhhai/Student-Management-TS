@@ -35,8 +35,8 @@ export function SideBar(props: SideBarProps) {
       collapsible
       collapsed={collapsed}
       onCollapse={onCollapse}
+      collapsedWidth={48}
     >
-      <div className={cx('logo')}>Student Management</div>
       <Menu theme="dark" mode="inline" selectedKeys={[activeDashboard ? '1' : '2']}>
         <Menu.Item
           key="1"
