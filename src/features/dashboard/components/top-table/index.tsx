@@ -20,12 +20,16 @@ export function TopTable({ title, data }: TopTableProps) {
 
   return (
     <Card title={title} className={cx('card')}>
-      <Table<Student> className={cx('top-table')} dataSource={indexForData(data)} pagination={false}>
+      <Table<Student>
+        className={cx('rc-table')}
+        dataSource={indexForData(data)}
+        pagination={false}
+      >
         <Table.Column<Student>
           key="index"
           title="No."
           dataIndex="index"
-          render={(item) => <span className={cx('ranking_idx', {top_3: item <= 3})}>{item}</span>}
+          render={(item) => <span className={cx('ranking_idx', { top_3: item <= 3 })}>{item}</span>}
         />
         <Table.Column<Student> key="name" title="Name" dataIndex="name" />
         <Table.Column<Student> key="mark" title="Mark" dataIndex="mark" />

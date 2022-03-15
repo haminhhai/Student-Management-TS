@@ -21,7 +21,6 @@ export default function Dashboard() {
   const highestStudentList = useAppSelector((state) => state.dashboard.highestStudentList);
   const LowestStudentList = useAppSelector((state) => state.dashboard.lowestStudentList);
   const rankingByCity = useAppSelector((state) => state.dashboard.rankingByCityList);
-  console.log('🚀 ~ rankingByCity', rankingByCity);
 
   useEffect(() => {
     dispatch(dashboardActions.fetchData());
@@ -47,21 +46,21 @@ export default function Dashboard() {
           <StatisticItem
             icon={<Female className={cx('statistic_icon')} />}
             label="Female"
-            value={statistics.maleCount}
+            value={statistics.femaleCount}
           />
         </Col>
         <Col xs={24} md={12} xl={6}>
           <StatisticItem
             icon={<HighMark className={cx('statistic_icon')} />}
             label="Mark >= 8"
-            value={statistics.maleCount}
+            value={statistics.highMarkCount}
           />
         </Col>
         <Col xs={24} md={12} xl={6}>
           <StatisticItem
             icon={<LowMark className={cx('statistic_icon')} />}
             label="Mark <= 5"
-            value={statistics.maleCount}
+            value={statistics.lowMarkCount}
           />
         </Col>
       </Row>

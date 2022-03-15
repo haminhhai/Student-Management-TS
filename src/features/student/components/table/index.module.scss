@@ -1,0 +1,16 @@
+@import 'assets/styles/variables.scss';
+
+.rc-table {
+    :global(.ant-table-thead > tr > th),
+    :global(.ant-table-tbody > tr > td) {
+        background-color: $light-normal;
+    }
+
+    :global(.ant-table-tbody > tr.ant-table-row:hover > td) {
+        background-color: $dark-normal;
+    }
+}
+
+.action {
+    text-align: end;
+}
