@@ -9,7 +9,7 @@ import { ReactComponent as HighMark } from 'assets/images/high-mark.svg';
 import { ReactComponent as LowMark } from 'assets/images/low-mark.svg';
 import style from './index.module.scss';
 import classNames from 'classnames/bind';
-import { listCityName, listCityNameProps } from 'constants/index';
+import { cityActions, selectCityMap } from 'features/city/citySlice';
 
 const cx = classNames.bind(style);
 
@@ -21,15 +21,12 @@ export default function Dashboard() {
   const highestStudentList = useAppSelector((state) => state.dashboard.highestStudentList);
   const LowestStudentList = useAppSelector((state) => state.dashboard.lowestStudentList);
   const rankingByCity = useAppSelector((state) => state.dashboard.rankingByCityList);
+  const cityMap = useAppSelector(selectCityMap)
 
   useEffect(() => {
     dispatch(dashboardActions.fetchData());
+    dispatch(cityActions.fetchCityList())
   }, [dispatch]);
-
-  const resolveCityName = (cityId: string) => {
-    const city = listCityName.find((city: listCityNameProps) => city.key === cityId);
-    return city ? city.name : '';
-  };
 
   return (
     <Spin spinning={loading}>
@@ -79,9 +76,9 @@ export default function Dashboard() {
       {/* Ranking By City */}
       <h2 className={cx('title')}>Ranking By City</h2>
       <Row gutter={[16, 16]}>
-        {rankingByCity.map((city) => (
-          <Col xs={24} md={12}>
-            <TopTable title={resolveCityName(city.cityId)} data={city.rankingList} />
+        {rankingByCity.map((city, index) => (
+          <Col key={index} xs={24} md={12}>
+            <TopTable title={cityMap[city.cityId]?.name} data={city.rankingList} />
           </Col>
         ))}
       </Row>

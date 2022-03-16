@@ -11,6 +11,15 @@
     }
 }
 
+.badge {
+    &:global(.ant-badge) {
+        min-width: 31px;
+    }
+    :global(.ant-badge-count) {
+        box-shadow: none;
+    }
+}
+
 .action {
     text-align: end;
 }
