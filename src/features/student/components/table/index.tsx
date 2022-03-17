@@ -19,8 +19,6 @@ export function StudentTable({ data, loading, cityMap }: StudentTableProps) {
     switch (true) {
       case mark < 4:
         return '#f5222d';
-      case mark < 6:
-        return '#f980c2';
       case mark < 8:
         return '#2db7f5';
       case mark <= 10:

@@ -1,9 +1,17 @@
 import { PlusCircleFilled } from '@ant-design/icons';
-import { Button } from 'antd';
+import { Button, Pagination } from 'antd';
 import { useAppDispatch, useAppSelector } from 'app/hooks';
 import classNames from 'classnames/bind';
-import { StudentTable } from 'features/student/components';
-import { selectStudentList, studentActions } from 'features/student/studentSlice';
+import { selectCityMap } from 'features/city/citySlice';
+import { FilterStudent, StudentTable } from 'features/student/components';
+import {
+  selectStudentFilter,
+  selectStudentList,
+  selectStudentLoading,
+  selectStudentPagination,
+  studentActions,
+} from 'features/student/studentSlice';
+import { ListParams } from 'models';
 import React, { useEffect } from 'react';
 import style from './index.module.scss';
 
@@ -15,15 +23,28 @@ export default function ListStudents(props: ListStudentsProps) {
   const dispatch = useAppDispatch();
 
   const studentList = useAppSelector(selectStudentList);
+  const pagination = useAppSelector(selectStudentPagination);
+  const filter = useAppSelector(selectStudentFilter);
+  const loading = useAppSelector(selectStudentLoading);
+  const cityMap = useAppSelector(selectCityMap);
 
   useEffect(() => {
+    dispatch(studentActions.fetchStudentList(filter));
+  }, [filter]);
+
+  const handlePageChange = (page: number) => {
     dispatch(
-      studentActions.fetchStudentList({
-        _page: 1,
-        _limit: 15,
+      studentActions.setFilter({
+        ...filter,
+        _page: page,
       })
     );
-  }, [dispatch]);
+  };
+
+  const handleSearchChange = (newFilter: ListParams) => {
+    dispatch(studentActions.setFilterWithDebounce(newFilter));
+    
+  }
   return (
     <div>
       <div className={cx('header')}>
@@ -33,7 +54,16 @@ export default function ListStudents(props: ListStudentsProps) {
           Add Student
         </Button>
       </div>
-      <StudentTable data={studentList} />
+      <FilterStudent filter={filter} onSearchChange={handleSearchChange}/>
+      <StudentTable data={studentList} loading={loading} cityMap={cityMap} />
+      <Pagination
+        className={cx('rc-pagination')}
+        total={pagination?._totalRows}
+        showTotal={(total, range) => `${range[0]} - ${range[1]} of ${total} students`}
+        defaultPageSize={pagination?._limit}
+        current={pagination?._page}
+        onChange={handlePageChange}
+      />
     </div>
   );
 }
