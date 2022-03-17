@@ -9,7 +9,7 @@ export interface StudentTableProps {
   loading: any;
   cityMap: {
     [key: string]: City;
-  }
+  };
 }
 
 const cx = classNames.bind(style);

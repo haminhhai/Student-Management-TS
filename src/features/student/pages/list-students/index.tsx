@@ -2,7 +2,7 @@ import { PlusCircleFilled } from '@ant-design/icons';
 import { Button, Pagination } from 'antd';
 import { useAppDispatch, useAppSelector } from 'app/hooks';
 import classNames from 'classnames/bind';
-import { selectCityMap } from 'features/city/citySlice';
+import { selectCityList, selectCityMap } from 'features/city/citySlice';
 import { FilterStudent, StudentTable } from 'features/student/components';
 import {
   selectStudentFilter,
@@ -27,6 +27,7 @@ export default function ListStudents(props: ListStudentsProps) {
   const filter = useAppSelector(selectStudentFilter);
   const loading = useAppSelector(selectStudentLoading);
   const cityMap = useAppSelector(selectCityMap);
+  const cityList = useAppSelector(selectCityList);
 
   useEffect(() => {
     dispatch(studentActions.fetchStudentList(filter));
@@ -43,8 +44,12 @@ export default function ListStudents(props: ListStudentsProps) {
 
   const handleSearchChange = (newFilter: ListParams) => {
     dispatch(studentActions.setFilterWithDebounce(newFilter));
-    
-  }
+  };
+
+  const handleFilterChange = (newFilter: ListParams) => {
+    dispatch(studentActions.setFilter(newFilter));
+  };
+
   return (
     <div>
       <div className={cx('header')}>
@@ -54,7 +59,12 @@ export default function ListStudents(props: ListStudentsProps) {
           Add Student
         </Button>
       </div>
-      <FilterStudent filter={filter} onSearchChange={handleSearchChange}/>
+      <FilterStudent
+        filter={filter}
+        onSearchChange={handleSearchChange}
+        cityList={cityList}
+        onChange={handleFilterChange}
+      />
       <StudentTable data={studentList} loading={loading} cityMap={cityMap} />
       <Pagination
         className={cx('rc-pagination')}
