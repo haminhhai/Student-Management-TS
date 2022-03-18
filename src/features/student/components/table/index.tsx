@@ -1,7 +1,7 @@
 import { Badge, Button, Space, Table } from 'antd';
 import classNames from 'classnames/bind';
 import { City, Student } from 'models';
-import React from 'react';
+import React, { Dispatch, SetStateAction } from 'react';
 import style from './index.module.scss';
 
 export interface StudentTableProps {
@@ -10,11 +10,21 @@ export interface StudentTableProps {
   cityMap: {
     [key: string]: City;
   };
+  openModal: () => void;
+  editStudent: (record: Student) => void;
+  setSelectedStudent: Dispatch<SetStateAction<Student | undefined>>;
 }
 
 const cx = classNames.bind(style);
 
-export function StudentTable({ data, loading, cityMap }: StudentTableProps) {
+export function StudentTable({
+  data,
+  loading,
+  cityMap,
+  openModal,
+  setSelectedStudent,
+  editStudent,
+}: StudentTableProps) {
   const formatMark = (mark: number) => {
     switch (true) {
       case mark < 4:
@@ -30,6 +40,15 @@ export function StudentTable({ data, loading, cityMap }: StudentTableProps) {
     if (!gen) return '';
 
     return `${gen[0].toUpperCase()}${gen.slice(1)}`;
+  };
+
+  const onEdit = (record: Student) => {
+    editStudent(record);
+  };
+
+  const onRemove = (record: Student) => {
+    setSelectedStudent(record);
+    openModal();
   };
 
   return (
@@ -67,13 +86,15 @@ export function StudentTable({ data, loading, cityMap }: StudentTableProps) {
       />
       <Table.Column<Student>
         key="action"
-        render={() => {
+        render={(content, record) => {
           return {
             props: { className: cx('action') },
             children: (
               <Space size="middle">
-                <Button type="primary">Edit</Button>
-                <Button type="primary" danger>
+                <Button type="primary" onClick={() => onEdit(record)}>
+                  Edit
+                </Button>
+                <Button type="primary" danger onClick={() => onRemove(record)}>
                   Remove
                 </Button>
               </Space>
