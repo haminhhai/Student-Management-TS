@@ -5,7 +5,6 @@ import { authActions } from 'features/auth/authSlice';
 import React from 'react';
 import style from './index.module.scss';
 import { ReactComponent as User } from 'assets/images/user.svg';
-import { ReactComponent as Logo } from 'assets/images/logo.svg';
 import { DingtalkCircleFilled } from '@ant-design/icons';
 
 export interface HeaderProps {}

@@ -5,7 +5,6 @@ import { StudentForm } from 'features/student/components';
 import { Student } from 'models';
 import React, { useEffect, useMemo, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
-import { boolean } from 'yup';
 import style from './index.module.scss';
 
 const cx = classNames.bind(style);
