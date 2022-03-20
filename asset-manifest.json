@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Student-Management-TS/static/css/main.aa6bbdbf.css",
-    "main.js": "/Student-Management-TS/static/js/main.1be7af0a.js",
+    "main.js": "/Student-Management-TS/static/js/main.a6665ea3.js",
     "static/media/Fredoka.ttf": "/Student-Management-TS/static/media/Fredoka.250a4e837ebe08c527c7.ttf",
     "static/media/female.svg": "/Student-Management-TS/static/media/female.8d3693c27c356e5b12fcb010a1b4e9d6.svg",
     "static/media/male.svg": "/Student-Management-TS/static/media/male.4a8a33f660a351cd07d74181d4d4454f.svg",
@@ -10,10 +10,10 @@
     "static/media/low-mark.svg": "/Student-Management-TS/static/media/low-mark.b1c0cf1b25e96b5fd8941ab62cb42f68.svg",
     "index.html": "/Student-Management-TS/index.html",
     "main.aa6bbdbf.css.map": "/Student-Management-TS/static/css/main.aa6bbdbf.css.map",
-    "main.1be7af0a.js.map": "/Student-Management-TS/static/js/main.1be7af0a.js.map"
+    "main.a6665ea3.js.map": "/Student-Management-TS/static/js/main.a6665ea3.js.map"
   },
   "entrypoints": [
     "static/css/main.aa6bbdbf.css",
-    "static/js/main.1be7af0a.js"
+    "static/js/main.a6665ea3.js"
   ]
 }
