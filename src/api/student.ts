@@ -18,9 +18,9 @@ const studentApi = {
         return axiosService.post(url, data)
     },
 
-    update(data: Student): Promise<Student> {
-        const url = '/students'
-        return axiosService.post(url, data)
+    update(data: Partial<Student>): Promise<Student> {
+        const url = `/students/${data.id}`
+        return axiosService.patch(url, data)
     },
 
     remove(id: string): Promise<any> {

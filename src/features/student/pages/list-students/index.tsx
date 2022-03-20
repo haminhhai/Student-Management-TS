@@ -1,5 +1,5 @@
 import { PlusCircleFilled } from '@ant-design/icons';
-import { Button, Modal, PageHeader, Pagination } from 'antd';
+import { Button, Modal, notification, PageHeader, Pagination } from 'antd';
 import studentApi from 'api/student';
 import { useAppDispatch, useAppSelector } from 'app/hooks';
 import classNames from 'classnames/bind';
@@ -71,6 +71,7 @@ export default function ListStudents(props: ListStudentsProps) {
       // Trigger to refetch student list
       const cloneFilter = _.cloneDeep(filter);
       dispatch(studentActions.setFilter(cloneFilter));
+      notification.success({ message: 'Student removed' });
     } catch (error) {
       console.log(error);
     }

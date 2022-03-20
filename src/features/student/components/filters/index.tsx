@@ -16,7 +16,7 @@ const cx = classNames.bind(style);
 const { Option } = Select;
 
 export function FilterStudent({ filter, cityList, onChange, onSearchChange }: FilterStudentProps) {
-  const [name, setName] = useState('')
+  const [name, setName] = useState('');
 
   const onSearch = (e: ChangeEvent<HTMLInputElement>) => {
     if (!onSearchChange) return;
@@ -71,8 +71,6 @@ export function FilterStudent({ filter, cityList, onChange, onSearchChange }: Fi
     onChange(newFilter);
   };
 
-
-
   return (
     <Row gutter={16} className={cx('container')}>
       <Col xs={24} md={7}>
@@ -89,12 +87,16 @@ export function FilterStudent({ filter, cityList, onChange, onSearchChange }: Fi
         </Select>
       </Col>
       <Col xs={24} md={7}>
-        <Select value={filter._sort ? `${filter._sort}.${filter._order}` : ''} onChange={onSortChange} className={cx('select')}>
+        <Select
+          value={filter._sort ? `${filter._sort}.${filter._order}` : ''}
+          onChange={onSortChange}
+          className={cx('select')}
+        >
           <Option value="">No Sort</Option>
-          <Option value='name.asc'>Name ASC</Option>
-          <Option value='name.desc'>Name DESC</Option>
-          <Option value='mark.asc'>Mark ASC</Option>
-          <Option value='mark.desc'>Mark DESC</Option>
+          <Option value="name.asc">Name ASC</Option>
+          <Option value="name.desc">Name DESC</Option>
+          <Option value="mark.asc">Mark ASC</Option>
+          <Option value="mark.desc">Mark DESC</Option>
         </Select>
       </Col>
       <Col xs={24} md={3}>
