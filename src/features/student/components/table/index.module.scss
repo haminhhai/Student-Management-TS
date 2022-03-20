@@ -5,10 +5,6 @@
     :global(.ant-table-tbody > tr > td) {
         background-color: $light-normal;
     }
-
-    :global(.ant-table-tbody > tr.ant-table-row:hover > td) {
-        background-color: $dark-normal;
-    }
 }
 
 .badge {

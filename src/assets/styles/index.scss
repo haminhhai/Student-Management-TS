@@ -19,3 +19,13 @@ body {
   src: local('Fredoka'), url(../fonts/Fredoka.ttf) format('truetype');
 }
 
+.ant-layout-header,
+.ant-layout-sider,
+.ant-menu.ant-menu-dark {
+  background-color: #FFCCD2 !important;
+}
+
+.ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal) .ant-menu-item-selected,
+.ant-layout-sider-trigger {
+  background-color: #FF9292 !important;
+}

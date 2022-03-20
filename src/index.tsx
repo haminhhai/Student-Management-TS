@@ -4,7 +4,7 @@ import 'assets/styles/index.scss';
 import App from './App';
 import { store } from './app/store';
 import { Provider } from 'react-redux';
-import 'antd/dist/antd.less';
+import 'antd/dist/antd.css';
 import { ConnectedRouter } from 'connected-react-router';
 import { history } from 'utils';
 

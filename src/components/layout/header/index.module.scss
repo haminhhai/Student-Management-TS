@@ -1,7 +1,37 @@
+@import "assets/styles/variables.scss";
+
 .container {
     text-align: end;
 }
 
 .avatar {
     cursor: pointer;
+    &:global(.ant-avatar.ant-avatar-icon) {
+        background-color: #fff;
+    }
+}
+
+.user-ic {
+    width: 26px;
+    height: 40px;
+}
+
+.logo {
+    float: left;
+    width: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+
+    p {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 0;
+    }
+
+    &_icon {
+        color: $dark-bold !important;
+        font-size: 40px;
+    }
 }

@@ -15,7 +15,7 @@ export default function App() {
           exact
           path="/"
           render={() => {
-            return isLoggedIn ? <Redirect to={'/admin'} /> : <Redirect to="/login" />;
+            return isLoggedIn ? <Redirect to={'/admin/dashboard'} /> : <Redirect to="/login" />;
           }}
         />
         <Route path="/login">
