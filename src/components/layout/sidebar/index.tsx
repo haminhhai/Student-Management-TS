@@ -6,13 +6,10 @@ import {
   MenuUnfoldOutlined,
   UnorderedListOutlined,
 } from '@ant-design/icons';
-import classNames from 'classnames/bind';
-import style from './index.module.scss';
 import { useHistory, useLocation } from 'react-router-dom';
 
 export interface SideBarProps {}
 
-const cx = classNames.bind(style);
 const { Sider } = Layout;
 const Trigger = ({ isCollapsed }: { isCollapsed: boolean }) => {
   return isCollapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />;

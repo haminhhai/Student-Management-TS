@@ -39,7 +39,7 @@ export default function ListStudents(props: ListStudentsProps) {
 
   useEffect(() => {
     dispatch(studentActions.fetchStudentList(filter));
-  }, [filter]);
+  }, [dispatch, filter]);
 
   const handlePageChange = (page: number) => {
     dispatch(

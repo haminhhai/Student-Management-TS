@@ -14,7 +14,7 @@ export default function StudentFeature (props: StudentFeatureProps) {
 
   useEffect(() => {
     dispatch(cityActions.fetchCityList())
-  }, [])
+  }, [dispatch])
 
   return (
     <Switch>

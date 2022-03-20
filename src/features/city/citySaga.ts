@@ -1,4 +1,3 @@
-import { PayloadAction } from "@reduxjs/toolkit";
 import cityApi from "api/city";
 import { City, ListResponse } from "models";
 import { call, put, takeLatest } from "redux-saga/effects";

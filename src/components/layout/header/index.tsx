@@ -1,8 +1,8 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import { Avatar, Dropdown, Layout, Menu } from 'antd';
 import { useAppDispatch } from 'app/hooks';
 import classNames from 'classnames/bind';
 import { authActions } from 'features/auth/authSlice';
-import React from 'react';
 import style from './index.module.scss';
 import { ReactComponent as User } from 'assets/images/user.svg';
 import { DingtalkCircleFilled } from '@ant-design/icons';
