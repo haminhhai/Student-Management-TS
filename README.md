@@ -1,5 +1,6 @@
 ## Student Management System
-This is my mini project to improve my react, redux toolkit and combine typescript.
+This is my mini project to improve my react, redux toolkit and combine typescript.<br/>
+Link demo [https://haminhhai.github.io/Student-Management-TS](https://haminhhai.github.io/Student-Management-TS)
 ### `npm start`
 
 Runs the app in the development mode.<br />
