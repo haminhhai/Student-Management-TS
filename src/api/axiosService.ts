@@ -1,7 +1,7 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 
 const axiosService = axios.create({
-  baseURL: 'http://js-post-api.herokuapp.com/api',
+  baseURL: 'https://js-post-api.herokuapp.com/api',
   headers: {
     'Content-Type': 'application/json',
   },
